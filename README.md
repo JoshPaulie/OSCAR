@@ -3,13 +3,21 @@ OSCAR is a simple MacOS status bar entry that displays how many players are curr
 
 <img align="right" src="OSCAR.png">
 
-## Download
-Check out the releases page for the latest binary
+## Usage
+- Start OSCAR
+- Player count will update every 10-minutes
+- Exit the app by clicking the status bar entry > Exit
 
-### Alternate install
-1. Clone repo
-2. `make setup`
-3. `make build`
+## Download
+Check out the [releases](https://github.com/JoshPaulie/OSCAR/releases) page for the latest build. Download **OSCAR.zip**, unzip from within Finder (double-clicking or `Command+O`), move the .app whereever you'd like
+
+### Alternate install (from source)
+```
+git clone https://github.com/JoshPaulie/OSCAR
+cd OSCAR
+make setup
+make build
+```
 
 ## Requirements
 - MacOS
