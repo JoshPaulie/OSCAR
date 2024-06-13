@@ -3,7 +3,7 @@
 # Default target
 all: setup run
 
-# Build Py2App
+# Build target to build Py2App
 build:
 	python setup.py py2app
 
@@ -14,7 +14,7 @@ setup:
 
 # Run target to execute the main Python script
 run:
-	.venv/bin/python main.py
+	.venv/bin/python OSCAR.py
 
 # Clean target to remove the virtual environment
 clean:
