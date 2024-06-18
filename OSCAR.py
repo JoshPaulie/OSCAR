@@ -72,7 +72,7 @@ class StatusBarApp(rumps.App):
         try:
             player_count = get_player_count()
         except requests.exceptions.ConnectionError:
-            self.title = "No internet!"
+            self.title = "😴"
             print("Status couldn't be updated, no internet connection")
         except ValueError as e:
             print("Uh oh. It seems Jagex changed the OSRS homepage.")
