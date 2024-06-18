@@ -1,5 +1,7 @@
 from setuptools import setup
 
+from OSCAR import version
+
 APP = ["OSCAR.py"]
 DATA_FILES = []
 OPTIONS = {
@@ -16,4 +18,5 @@ setup(
     options={"py2app": OPTIONS},
     setup_requires=["py2app"],
     name="OSCAR",
+    version=version,
 )

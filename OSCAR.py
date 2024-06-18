@@ -5,6 +5,8 @@ import requests
 import rumps
 from bs4 import BeautifulSoup
 
+version = "0.0.2"
+
 T = TypeVar("T")
 
 
@@ -56,11 +58,14 @@ class StatusBarApp(rumps.App):
     Simple status bar app that reflects the current player count"""
 
     def __init__(self):
-        print("Starting OSCAR ..")
         super(StatusBarApp, self).__init__("OSCAR")
-        self.menu = ["Refresh"]
+        print(f"Starting {self.name} ..")
+        self.menu = [
+            "Refresh",
+            f"{self.name} v{version}",
+        ]
 
-    @rumps.timer(val("10 mintues", 600))
+    @rumps.timer(val("10 mintues (in seconds)", 600))
     def auto_update_title(self, sender):
         self.update_title(sender)
 
