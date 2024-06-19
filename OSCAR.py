@@ -8,7 +8,7 @@ import requests
 import rumps
 from bs4 import BeautifulSoup
 
-version = "1.0.1"
+version = "1.0.2"
 
 # Logging
 log = logging.getLogger("OSCAR")
