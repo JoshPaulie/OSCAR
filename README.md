@@ -28,3 +28,11 @@ make build
 
 > [!Note]
 > This app is untested on Intel processors, and likely only works on arm64 (Apple Silicon)
+
+## Logging
+The OSCAR log file can be found at `~/Library/Logs/OSCAR.log`
+
+All player count updates and errors are logged there, which can be easily iterated over to gather player count over time data
+
+> [!Caution]
+> This is an unmanaged log file, with no size limit. You may keep an eye on it 😉
