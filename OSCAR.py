@@ -1,6 +1,7 @@
 import logging
 import os
 import re
+import subprocess
 from typing import TypeVar
 
 import requests
@@ -70,6 +71,7 @@ class StatusBarApp(rumps.App):
         log.info(f"Starting {self.name} ..")
         self.menu = [
             "Refresh",
+            "Show log",
             f"{self.name} v{version}",
         ]
 
@@ -98,6 +100,10 @@ class StatusBarApp(rumps.App):
             player_count_str = rs_number(player_count)
             self.title = player_count_str
             log.info(f"Updated player count: {player_count_str}")
+
+    @rumps.clicked("Show log")
+    def show_log(self, sender):
+        subprocess.run(["open", log_file_path])
 
 
 if __name__ == "__main__":
