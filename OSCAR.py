@@ -1,3 +1,5 @@
+import logging
+import os
 import re
 from typing import TypeVar
 
@@ -7,6 +9,11 @@ from bs4 import BeautifulSoup
 
 version = "1.0.1"
 
+# Logging
+log = logging.getLogger("OSCAR")
+log_file_path = os.path.expanduser("~/Library/Logs/OSCAR.log")
+
+# Generic Helpers
 T = TypeVar("T")
 
 
@@ -28,6 +35,7 @@ def rs_number(number: int) -> str:
     return str(number)
 
 
+# Data fetching
 def get_homepage() -> str:
     OSRS_HOMEPAGE_URL = "https://oldschool.runescape.com/"
     result = requests.get(OSRS_HOMEPAGE_URL).text
@@ -59,7 +67,7 @@ class StatusBarApp(rumps.App):
 
     def __init__(self):
         super(StatusBarApp, self).__init__("OSCAR")
-        print(f"Starting {self.name} ..")
+        log.info(f"Starting {self.name} ..")
         self.menu = [
             "Refresh",
             f"{self.name} v{version}",
@@ -78,17 +86,24 @@ class StatusBarApp(rumps.App):
             player_count = get_player_count()
         except requests.exceptions.ConnectionError:
             self.title = "😴"
-            print("Status couldn't be updated, no internet connection")
+            log.warning("Status couldn't be updated, no internet connection")
         except ValueError as e:
-            print("Uh oh. It seems Jagex changed the OSRS homepage.")
-            print("Fatal Error:", e)
-            print("Closing app. Please file an issue on GitHub")
+            log.error("Fatal Error:", e)
+            rumps.alert(
+                title="Uh oh. It seems Jagex changed the OSRS homepage.",
+                message=f"Fatal error: {e}\nClosing app. Please file an issue on GitHub",
+            )
             rumps.quit_application()
         else:
             player_count_str = rs_number(player_count)
             self.title = player_count_str
-            print("Updated player count:", player_count_str)
+            log.info(f"Updated player count: {player_count_str}")
 
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        format="%(levelname)-8s %(asctime)s %(message)s",
+        level=logging.INFO,
+        filename=log_file_path,
+    )
     StatusBarApp().run()
