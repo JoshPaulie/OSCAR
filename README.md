@@ -15,8 +15,19 @@ OSCAR is a simple MacOS status bar entry that displays how many players are curr
 4. Move the OSCAR.app wherever you'd like
 5. Run it 😌
 
-### Alternate install (from source)
+### Using the installer (alternate install)
+> [!Caution]
+> Never run unfamiliar scripts on your system!
+> 
+> Read before running [here](https://raw.githubusercontent.com/JoshPaulie/OSCAR/main/OSCAR-installer-homedir.sh)
+
+```sh
+curl -s https://raw.githubusercontent.com/JoshPaulie/OSCAR/main/OSCAR-installer-homedir.sh | sh
 ```
+
+### Build from source (alternate install)
+```sh
+cd ~
 git clone https://github.com/JoshPaulie/OSCAR
 cd OSCAR
 make setup
