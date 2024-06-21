@@ -16,10 +16,8 @@ OSCAR is a simple MacOS status bar entry that displays how many players are curr
 5. Run it 😌
 
 ### Using the installer (alternate install)
-> [!Caution]
-> Never run unfamiliar scripts on your system!
-> 
-> Read before running [here](https://raw.githubusercontent.com/JoshPaulie/OSCAR/main/OSCAR-installer-homedir.sh)
+> [!Important]
+> **Never** run unfamiliar scripts on your system! **Read** before running [here](https://github.com/JoshPaulie/OSCAR/blob/main/OSCAR-installer-homedir.sh). Install script is ~50 lines
 
 ```sh
 curl -s https://raw.githubusercontent.com/JoshPaulie/OSCAR/main/OSCAR-installer-homedir.sh | sh
@@ -37,13 +35,11 @@ make build
 ## Requirements
 - MacOS
 
-> [!Note]
-> This app is untested on Intel processors, and likely only works on arm64 (Apple Silicon)
+Note: This app is untested on Intel processors, and likely only works on arm64 (Apple Silicon)
 
 ## Logging
 The OSCAR log file can be found at `~/Library/Logs/OSCAR.log`
 
 All player count updates and errors can be found in this log file, which can be easily iterated over to gather player count over time
 
-> [!Caution]
-> This is an unmanaged log file, with no size limit.
+Note: This is an unmanaged log file, with no size limit.
