@@ -42,5 +42,5 @@ rm -fr $INSTALLDIR/OSCAR.zip
 
 # Confirmation message
 echo "${GREEN}OSCAR v$LATESTRELEASETAG has been installed!${NC}"
-echo "Run the app with the following command:"
-echo "${BLUE}open $HOME/OSCAR.app${NC}"
+echo "${BLUE}Opening finder to the application path!${NC}"
+open -R $HOME/OSCAR.app
