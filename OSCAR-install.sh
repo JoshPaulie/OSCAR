@@ -1,7 +1,7 @@
 # OSCAR installer
 
 # Set install directory
-INSTALLDIR="~"
+INSTALLDIR="$HOME"
 
 # Confirmation prompt
 read -p "Are you sure you'd like to install OSCAR to your home directory? (y/n) " -n 1 -r
